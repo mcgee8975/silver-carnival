@@ -1,0 +1,390 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+07/27/2020  12:16 AM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE: ESEM of ASSIST TOB Model
+
+  DATA: FILE = data.tob.dems.07.dat;
+
+  !Old location sequence
+  !c:\Users\ndmcgee\Desktop\data.etoh.dems.07.dat;
+
+  VARIABLE: NAMES = ATTOB3M ATTOBURG ATTOBPRB ATTOBWOR ATTOBTRY;
+
+      CATEGORICAL = ATTOB3M ATTOBURG ATTOBPRB ATTOBWOR ATTOBTRY;
+
+      missing are all (-999);
+
+     ANALYSIS:
+     	TYPE = GENERAL;
+     	ESTIMATOR = WLSMV;
+      	ITERATIONS = 10000;
+     	CONVERGENCE = 0.00005;
+
+      MODEL:
+      f1 by ATTOB3M ATTOBURG ATTOBPRB ATTOBWOR ATTOBTRY (*1);
+      ATTOBURG WITH ATTOB3M;
+      ATTOBTRY WITH ATTOBWOR;
+
+      OUTPUT: STANDARDIZED MODINDICES (ALL);
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+ESEM of ASSIST TOB Model
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1501
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   ATTOB3M     ATTOBURG    ATTOBPRB    ATTOBWOR    ATTOBTRY
+
+Continuous latent variables
+
+  EFA factors
+  *1:   F1
+
+
+Estimator                                                    WLSMV
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Maximum number of iterations                                 10000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  data.tob.dems.07.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              ATTOB3M       ATTOBURG      ATTOBPRB      ATTOBWOR      ATTOBTRY
+              ________      ________      ________      ________      ________
+ ATTOB3M        1.000
+ ATTOBURG       1.000         1.000
+ ATTOBPRB       1.000         1.000         1.000
+ ATTOBWOR       1.000         1.000         1.000         1.000
+ ATTOBTRY       1.000         1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    ATTOB3M
+      Category 1    0.430          645.000
+      Category 2    0.065           97.000
+      Category 3    0.039           58.000
+      Category 4    0.054           81.000
+      Category 5    0.413          620.000
+    ATTOBURG
+      Category 1    0.514          771.000
+      Category 2    0.040           60.000
+      Category 3    0.021           31.000
+      Category 4    0.059           89.000
+      Category 5    0.366          550.000
+    ATTOBPRB
+      Category 1    0.823         1235.000
+      Category 2    0.041           61.000
+      Category 3    0.031           47.000
+      Category 4    0.024           36.000
+      Category 5    0.081          122.000
+    ATTOBWOR
+      Category 1    0.544          817.000
+      Category 2    0.201          302.000
+      Category 3    0.254          382.000
+    ATTOBTRY
+      Category 1    0.496          744.000
+      Category 2    0.275          413.000
+      Category 3    0.229          344.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       23
+
+Chi-Square Test of Model Fit
+
+          Value                              1.059*
+          Degrees of Freedom                     3
+          P-Value                           0.7869
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.028
+          Probability RMSEA <= .05           0.998
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          70566.105
+          Degrees of Freedom                    10
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.003
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.10632760D-03
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    ATTOB3M            0.925      0.026     35.568      0.000
+    ATTOBURG           0.936      0.025     37.159      0.000
+    ATTOBPRB           0.790      0.024     32.768      0.000
+    ATTOBWOR           0.708      0.024     29.204      0.000
+    ATTOBTRY           0.733      0.023     31.286      0.000
+
+ ATTOBURG WITH
+    ATTOB3M            0.108      0.043      2.496      0.013
+
+ ATTOBTRY WITH
+    ATTOBWOR           0.162      0.027      6.018      0.000
+
+ Thresholds
+    ATTOB3M$1         -0.177      0.033     -5.444      0.000
+    ATTOB3M$2         -0.014      0.032     -0.439      0.661
+    ATTOB3M$3          0.083      0.032      2.555      0.011
+    ATTOB3M$4          0.220      0.033      6.732      0.000
+    ATTOBURG$1         0.034      0.032      1.058      0.290
+    ATTOBURG$2         0.135      0.032      4.154      0.000
+    ATTOBURG$3         0.187      0.033      5.753      0.000
+    ATTOBURG$4         0.341      0.033     10.330      0.000
+    ATTOBPRB$1         0.926      0.038     24.413      0.000
+    ATTOBPRB$2         1.096      0.041     27.057      0.000
+    ATTOBPRB$3         1.252      0.043     28.795      0.000
+    ATTOBPRB$4         1.397      0.047     29.790      0.000
+    ATTOBWOR$1         0.111      0.032      3.432      0.001
+    ATTOBWOR$2         0.660      0.035     18.843      0.000
+    ATTOBTRY$1        -0.011      0.032     -0.336      0.737
+    ATTOBTRY$2         0.742      0.036     20.714      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    ATTOB3M            0.925      0.026     35.568      0.000
+    ATTOBURG           0.936      0.025     37.159      0.000
+    ATTOBPRB           0.790      0.024     32.768      0.000
+    ATTOBWOR           0.708      0.024     29.204      0.000
+    ATTOBTRY           0.733      0.023     31.286      0.000
+
+ ATTOBURG WITH
+    ATTOB3M            0.807      0.062     13.040      0.000
+
+ ATTOBTRY WITH
+    ATTOBWOR           0.337      0.043      7.885      0.000
+
+ Thresholds
+    ATTOB3M$1         -0.177      0.033     -5.444      0.000
+    ATTOB3M$2         -0.014      0.032     -0.439      0.661
+    ATTOB3M$3          0.083      0.032      2.555      0.011
+    ATTOB3M$4          0.220      0.033      6.732      0.000
+    ATTOBURG$1         0.034      0.032      1.058      0.290
+    ATTOBURG$2         0.135      0.032      4.154      0.000
+    ATTOBURG$3         0.187      0.033      5.753      0.000
+    ATTOBURG$4         0.341      0.033     10.330      0.000
+    ATTOBPRB$1         0.926      0.038     24.413      0.000
+    ATTOBPRB$2         1.096      0.041     27.057      0.000
+    ATTOBPRB$3         1.252      0.043     28.795      0.000
+    ATTOBPRB$4         1.397      0.047     29.790      0.000
+    ATTOBWOR$1         0.111      0.032      3.432      0.001
+    ATTOBWOR$2         0.660      0.035     18.843      0.000
+    ATTOBTRY$1        -0.011      0.032     -0.336      0.737
+    ATTOBTRY$2         0.742      0.036     20.714      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    ATTOB3M            0.925      0.026     35.568      0.000
+    ATTOBURG           0.936      0.025     37.159      0.000
+    ATTOBPRB           0.790      0.024     32.768      0.000
+    ATTOBWOR           0.708      0.024     29.204      0.000
+    ATTOBTRY           0.733      0.023     31.286      0.000
+
+ ATTOBURG WITH
+    ATTOB3M            0.807      0.062     13.040      0.000
+
+ ATTOBTRY WITH
+    ATTOBWOR           0.337      0.043      7.885      0.000
+
+ Thresholds
+    ATTOB3M$1         -0.177      0.033     -5.444      0.000
+    ATTOB3M$2         -0.014      0.032     -0.439      0.661
+    ATTOB3M$3          0.083      0.032      2.555      0.011
+    ATTOB3M$4          0.220      0.033      6.732      0.000
+    ATTOBURG$1         0.034      0.032      1.058      0.290
+    ATTOBURG$2         0.135      0.032      4.154      0.000
+    ATTOBURG$3         0.187      0.033      5.753      0.000
+    ATTOBURG$4         0.341      0.033     10.330      0.000
+    ATTOBPRB$1         0.926      0.038     24.413      0.000
+    ATTOBPRB$2         1.096      0.041     27.057      0.000
+    ATTOBPRB$3         1.252      0.043     28.795      0.000
+    ATTOBPRB$4         1.397      0.047     29.790      0.000
+    ATTOBWOR$1         0.111      0.032      3.432      0.001
+    ATTOBWOR$2         0.660      0.035     18.843      0.000
+    ATTOBTRY$1        -0.011      0.032     -0.336      0.737
+    ATTOBTRY$2         0.742      0.036     20.714      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    ATTOB3M            0.925      0.026     35.568      0.000
+    ATTOBURG           0.936      0.025     37.159      0.000
+    ATTOBPRB           0.790      0.024     32.768      0.000
+    ATTOBWOR           0.708      0.024     29.204      0.000
+    ATTOBTRY           0.733      0.023     31.286      0.000
+
+ ATTOBURG WITH
+    ATTOB3M            0.108      0.043      2.496      0.013
+
+ ATTOBTRY WITH
+    ATTOBWOR           0.162      0.027      6.018      0.000
+
+ Thresholds
+    ATTOB3M$1         -0.177      0.033     -5.444      0.000
+    ATTOB3M$2         -0.014      0.032     -0.439      0.661
+    ATTOB3M$3          0.083      0.032      2.555      0.011
+    ATTOB3M$4          0.220      0.033      6.732      0.000
+    ATTOBURG$1         0.034      0.032      1.058      0.290
+    ATTOBURG$2         0.135      0.032      4.154      0.000
+    ATTOBURG$3         0.187      0.033      5.753      0.000
+    ATTOBURG$4         0.341      0.033     10.330      0.000
+    ATTOBPRB$1         0.926      0.038     24.413      0.000
+    ATTOBPRB$2         1.096      0.041     27.057      0.000
+    ATTOBPRB$3         1.252      0.043     28.795      0.000
+    ATTOBPRB$4         1.397      0.047     29.790      0.000
+    ATTOBWOR$1         0.111      0.032      3.432      0.001
+    ATTOBWOR$2         0.660      0.035     18.843      0.000
+    ATTOBTRY$1        -0.011      0.032     -0.336      0.737
+    ATTOBTRY$2         0.742      0.036     20.714      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    ATTOB3M            0.855      0.048     17.784      0.000      0.145
+    ATTOBURG           0.876      0.047     18.580      0.000      0.124
+    ATTOBPRB           0.624      0.038     16.384      0.000      0.376
+    ATTOBWOR           0.501      0.034     14.602      0.000      0.499
+    ATTOBTRY           0.537      0.034     15.643      0.000      0.463
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.100E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+     Beginning Time:  00:16:31
+        Ending Time:  00:16:31
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

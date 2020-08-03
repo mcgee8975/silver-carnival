@@ -1,0 +1,297 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+07/27/2020   2:33 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: ESEM of ASSIST AMP Model
+
+  DATA: FILE = data.amp.dems.03.dat;
+
+
+  !Old location sequence
+  !c:\Users\ndmcgee\Desktop\data.etoh.dems.07.dat;
+
+
+
+  VARIABLE: NAMES = ATAMP3M ATAMPURG ATAMPPRB ATAMPEXP ATAMPWOR ATAMPTRY;
+
+
+      CATEGORICAL = ATAMP3M ATAMPURG ATAMPPRB ATAMPEXP ATAMPWOR ATAMPTRY;
+
+      missing are all (-999);
+
+     ANALYSIS:
+     	TYPE = GENERAL;
+     	ESTIMATOR = WLSMV;
+        	PARAMETERIZATION = THETA;
+        	ITERATIONS = 10000;
+        	CONVERGENCE = 0.00005;
+
+      MODEL:
+      f1 f2 f3 by ATAMP3M ATAMPURG ATAMPPRB ATAMPEXP ATAMPWOR ATAMPTRY (*1);
+
+      OUTPUT: STANDARDIZED MODINDICES (ALL);
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+ESEM of ASSIST AMP Model
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         368
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   ATAMP3M     ATAMPURG    ATAMPPRB    ATAMPEXP    ATAMPWOR    ATAMPTRY
+
+Continuous latent variables
+
+  EFA factors
+  *1:   F1          F2          F3
+
+
+Estimator                                                    WLSMV
+Rotation                                                    GEOMIN
+Row standardization                                     COVARIANCE
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Maximum number of iterations                                 10000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  data.amp.dems.03.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              ATAMP3M       ATAMPURG      ATAMPPRB      ATAMPEXP      ATAMPWOR
+              ________      ________      ________      ________      ________
+ ATAMP3M        1.000
+ ATAMPURG       1.000         1.000
+ ATAMPPRB       1.000         1.000         1.000
+ ATAMPEXP       1.000         1.000         1.000         1.000
+ ATAMPWOR       1.000         1.000         1.000         1.000         1.000
+ ATAMPTRY       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              ATAMPTRY
+              ________
+ ATAMPTRY       1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    ATAMP3M
+      Category 1    0.908          334.000
+      Category 2    0.057           21.000
+      Category 3    0.022            8.000
+      Category 4    0.003            1.000
+      Category 5    0.011            4.000
+    ATAMPURG
+      Category 1    0.940          346.000
+      Category 2    0.014            5.000
+      Category 3    0.024            9.000
+      Category 4    0.011            4.000
+      Category 5    0.011            4.000
+    ATAMPPRB
+      Category 1    0.967          356.000
+      Category 2    0.011            4.000
+      Category 3    0.008            3.000
+      Category 4    0.003            1.000
+      Category 5    0.011            4.000
+    ATAMPEXP
+      Category 1    0.965          355.000
+      Category 2    0.011            4.000
+      Category 3    0.014            5.000
+      Category 4    0.011            4.000
+    ATAMPWOR
+      Category 1    0.815          300.000
+      Category 2    0.141           52.000
+      Category 3    0.043           16.000
+    ATAMPTRY
+      Category 1    0.848          312.000
+      Category 2    0.120           44.000
+      Category 3    0.033           12.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     NO CONVERGENCE IN ROTATION ALGORITHM.  NUMBER OF ITERATIONS EXCEEDED.
+     PROBLEM OCCURRED IN EXPLORATORY FACTOR ANALYSIS WITH 3 FACTOR(S).
+     THE PROBLEM IS PROBABLY DUE TO THE NEGATIVE RESIDUAL VARIANCE FOR
+     VARIABLE ATAMPEXP.
+
+
+     PROBLEM OCCURRED IN THE ROTATION ALGORITHM. UNROTATED SOLUTION IS REPORTED.
+
+
+
+
+MODEL RESULTS
+
+                    Estimate
+
+ F1       BY
+    ATAMP3M           26.965
+    ATAMPURG          26.276
+    ATAMPPRB          17.243
+    ATAMPEXP          27.121
+    ATAMPWOR           1.126
+    ATAMPTRY          10.471
+
+ F2       BY
+    ATAMP3M            0.000
+    ATAMPURG           5.858
+    ATAMPPRB           0.228
+    ATAMPEXP           7.598
+    ATAMPWOR           0.423
+    ATAMPTRY          14.046
+
+ F3       BY
+    ATAMP3M            0.000
+    ATAMPURG           0.000
+    ATAMPPRB          -7.774
+    ATAMPEXP          -8.425
+    ATAMPWOR          -0.892
+    ATAMPTRY         -14.052
+
+ F2       WITH
+    F1                 0.000
+
+ F3       WITH
+    F1                 0.000
+    F2                 0.000
+
+ Thresholds
+    ATAMP3M$1         35.778
+    ATAMP3M$2         48.732
+    ATAMP3M$3         59.681
+    ATAMP3M$4         61.970
+    ATAMPURG$1        41.933
+    ATAMPURG$2        45.341
+    ATAMPURG$3        54.410
+    ATAMPURG$4        61.787
+    ATAMPPRB$1        34.945
+    ATAMPPRB$2        38.268
+    ATAMPPRB$3        41.794
+    ATAMPPRB$4        43.476
+    ATAMPEXP$1        53.183
+    ATAMPEXP$2        57.926
+    ATAMPEXP$3        67.471
+    ATAMPWOR$1         1.616
+    ATAMPWOR$2         3.082
+    ATAMPTRY$1        23.089
+    ATAMPTRY$2        41.450
+
+ Variances
+    F1                 1.000
+    F2                 1.000
+    F3                 1.000
+
+
+CFA MODEL COMMAND WITH FINAL ROTATED ESTIMATES USED AS STARTING VALUES
+
+     f1 BY atamp3m*26.96488;
+     f1 BY atampurg*26.27593;
+     f1 BY atampprb*17.24321;
+     f1 BY atampexp*27.12138;
+     f1 BY atampwor*1.12578;
+     f1 BY atamptry*10.47077;
+     f2 BY atamp3m*0;
+     f2 BY atampurg*5.85764;
+     f2 BY atampprb*0.22787;
+     f2 BY atampexp*7.59816;
+     f2 BY atampwor*0.42306;
+     f2 BY atamptry*14.04617;
+     f3 BY atamp3m*0;
+     f3 BY atampurg*0;
+     f3 BY atampprb*-7.77430;
+     f3 BY atampexp*-8.42532;
+     f3 BY atampwor*-0.89164;
+     f3 BY atamptry*-14.05233;
+
+     f2 WITH f1*0;
+     f3 WITH f1*0;
+     f3 WITH f2*0;
+
+     [ atamp3m$1*35.77750 ];
+     [ atamp3m$2*48.73167 ];
+     [ atamp3m$3*59.68132 ];
+     [ atamp3m$4*61.97037 ];
+     [ atampurg$1*41.93314 ];
+     [ atampurg$2*45.34090 ];
+     [ atampurg$3*54.40974 ];
+     [ atampurg$4*61.78687 ];
+     [ atampprb$1*34.94518 ];
+     [ atampprb$2*38.26820 ];
+     [ atampprb$3*41.79425 ];
+     [ atampprb$4*43.47636 ];
+     [ atampexp$1*53.18324 ];
+     [ atampexp$2*57.92621 ];
+     [ atampexp$3*67.47057 ];
+     [ atampwor$1*1.61551 ];
+     [ atampwor$2*3.08191 ];
+     [ atamptry$1*23.08917 ];
+     [ atamptry$2*41.44953 ];
+
+     f1@1;
+     f2@1;
+     f3@1;
+
+
+
+     Beginning Time:  14:33:03
+        Ending Time:  14:33:04
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

@@ -1,0 +1,1119 @@
+Mplus VERSION 8.4 (Mac)
+MUTHEN & MUTHEN
+08/01/2020   3:35 AM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE: ESEM of ASSIST ETOH_TOB Model
+
+  DATA: FILE = data.etoh_tob_thc.dems.dat;
+
+  !Old location sequence
+  !c:\Users\ndmcgee\Desktop\data.etoh.dems.07.dat;
+
+  VARIABLE: NAMES =  ATTHC3M ATTHCURG ATTHCPRB
+                     ATTHCEXP ATTHCWOR ATTHCTRY
+  	         ATALC3M  ATALCURG ATALCPRB
+  	         ATALCEXP ATALCWOR ATALCTRY
+  	         ATTOB3M  ATTOBURG ATTOBPRB
+  	         ATTOBWOR ATTOBTRY GENDER
+  	         AGE      RACE     EDU
+                     JOB      MARTL;
+
+
+
+            USEVARIABLES ARE 	ATTHC3M ATTHCURG ATTHCPRB
+                             	ATTHCEXP ATTHCWOR ATTHCTRY
+  	         		ATALC3M  ATALCURG ATALCPRB
+  	         		ATALCEXP ATALCWOR ATALCTRY
+  	         		ATTOB3M  ATTOBURG ATTOBPRB
+  	         		ATTOBWOR ATTOBTRY;
+
+      CATEGORICAL = ATTHC3M ATTHCURG ATTHCPRB
+                             	ATTHCEXP ATTHCWOR ATTHCTRY
+  	         		ATALC3M  ATALCURG ATALCPRB
+  	         		ATALCEXP ATALCWOR ATALCTRY
+  	         		ATTOB3M  ATTOBURG ATTOBPRB
+  	         		ATTOBWOR ATTOBTRY;
+
+      missing are all (-999);
+
+     ANALYSIS:
+     	TYPE = GENERAL;
+     	ESTIMATOR = WLSMV;
+      	ITERATIONS = 10000;
+     	CONVERGENCE = 0.00005;
+     	DIFFTEST = deriv_etoh_tob_thc_03_c.dat;
+
+      MODEL:
+      	   f1 f2 f3 by 	ATTHC3M ATTHCURG ATTHCPRB
+                             	ATTHCEXP ATTHCWOR ATTHCTRY
+  	         		ATALC3M  ATALCURG ATALCPRB
+  	         		ATALCEXP ATALCWOR ATALCTRY
+  	         		ATTOB3M  ATTOBURG ATTOBPRB
+  	         		ATTOBWOR ATTOBTRY (*1);
+  	         		ATALCTRY WITH ATALCWOR;
+  	         		ATTOBURG WITH ATTOB3M;
+  	         		ATALCTRY WITH ATTHCTRY;
+            		
+
+
+
+      OUTPUT: STANDARDIZED MODINDICES (ALL);
+
+      SAVEDATA: DIFFTEST IS deriv_etoh_tob_thc_03_d.dat;
+
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+ESEM of ASSIST ETOH_TOB Model
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1121
+
+Number of dependent variables                                   17
+Number of independent variables                                  0
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   ATTHC3M     ATTHCURG    ATTHCPRB    ATTHCEXP    ATTHCWOR    ATTHCTRY
+   ATALC3M     ATALCURG    ATALCPRB    ATALCEXP    ATALCWOR    ATALCTRY
+   ATTOB3M     ATTOBURG    ATTOBPRB    ATTOBWOR    ATTOBTRY
+
+Continuous latent variables
+
+  EFA factors
+  *1:   F1          F2          F3
+
+
+Estimator                                                    WLSMV
+Rotation                                                    GEOMIN
+Row standardization                                    CORRELATION
+Type of rotation                                           OBLIQUE
+Epsilon value                                               Varies
+Maximum number of iterations                                 10000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                               10000
+  Derivative convergence criterion                       0.100D-04
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  data.etoh_tob_thc.dems.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              ATTHC3M       ATTHCURG      ATTHCPRB      ATTHCEXP      ATTHCWOR
+              ________      ________      ________      ________      ________
+ ATTHC3M        1.000
+ ATTHCURG       1.000         1.000
+ ATTHCPRB       1.000         1.000         1.000
+ ATTHCEXP       1.000         1.000         1.000         1.000
+ ATTHCWOR       1.000         1.000         1.000         1.000         1.000
+ ATTHCTRY       1.000         1.000         1.000         1.000         1.000
+ ATALC3M        1.000         1.000         1.000         1.000         1.000
+ ATALCURG       1.000         1.000         1.000         1.000         1.000
+ ATALCPRB       1.000         1.000         1.000         1.000         1.000
+ ATALCEXP       1.000         1.000         1.000         1.000         1.000
+ ATALCWOR       1.000         1.000         1.000         1.000         1.000
+ ATALCTRY       1.000         1.000         1.000         1.000         1.000
+ ATTOB3M        1.000         1.000         1.000         1.000         1.000
+ ATTOBURG       1.000         1.000         1.000         1.000         1.000
+ ATTOBPRB       1.000         1.000         1.000         1.000         1.000
+ ATTOBWOR       1.000         1.000         1.000         1.000         1.000
+ ATTOBTRY       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              ATTHCTRY      ATALC3M       ATALCURG      ATALCPRB      ATALCEXP
+              ________      ________      ________      ________      ________
+ ATTHCTRY       1.000
+ ATALC3M        1.000         1.000
+ ATALCURG       1.000         1.000         1.000
+ ATALCPRB       1.000         1.000         1.000         1.000
+ ATALCEXP       1.000         1.000         1.000         1.000         1.000
+ ATALCWOR       1.000         1.000         1.000         1.000         1.000
+ ATALCTRY       1.000         1.000         1.000         1.000         1.000
+ ATTOB3M        1.000         1.000         1.000         1.000         1.000
+ ATTOBURG       1.000         1.000         1.000         1.000         1.000
+ ATTOBPRB       1.000         1.000         1.000         1.000         1.000
+ ATTOBWOR       1.000         1.000         1.000         1.000         1.000
+ ATTOBTRY       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              ATALCWOR      ATALCTRY      ATTOB3M       ATTOBURG      ATTOBPRB
+              ________      ________      ________      ________      ________
+ ATALCWOR       1.000
+ ATALCTRY       1.000         1.000
+ ATTOB3M        1.000         1.000         1.000
+ ATTOBURG       1.000         1.000         1.000         1.000
+ ATTOBPRB       1.000         1.000         1.000         1.000         1.000
+ ATTOBWOR       1.000         1.000         1.000         1.000         1.000
+ ATTOBTRY       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              ATTOBWOR      ATTOBTRY
+              ________      ________
+ ATTOBWOR       1.000
+ ATTOBTRY       1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    ATTHC3M
+      Category 1    0.718          805.000
+      Category 2    0.073           82.000
+      Category 3    0.051           57.000
+      Category 4    0.062           69.000
+      Category 5    0.096          108.000
+    ATTHCURG
+      Category 1    0.786          881.000
+      Category 2    0.044           49.000
+      Category 3    0.035           39.000
+      Category 4    0.046           52.000
+      Category 5    0.089          100.000
+    ATTHCPRB
+      Category 1    0.941         1055.000
+      Category 2    0.016           18.000
+      Category 3    0.014           16.000
+      Category 4    0.012           14.000
+      Category 5    0.016           18.000
+    ATTHCEXP
+      Category 1    0.948         1063.000
+      Category 2    0.020           22.000
+      Category 3    0.010           11.000
+      Category 4    0.012           13.000
+      Category 5    0.011           12.000
+    ATTHCWOR
+      Category 1    0.798          894.000
+      Category 2    0.155          174.000
+      Category 3    0.047           53.000
+    ATTHCTRY
+      Category 1    0.815          914.000
+      Category 2    0.132          148.000
+      Category 3    0.053           59.000
+    ATALC3M
+      Category 1    0.383          429.000
+      Category 2    0.178          199.000
+      Category 3    0.183          205.000
+      Category 4    0.175          196.000
+      Category 5    0.082           92.000
+    ATALCURG
+      Category 1    0.666          747.000
+      Category 2    0.091          102.000
+      Category 3    0.071           80.000
+      Category 4    0.096          108.000
+      Category 5    0.075           84.000
+    ATALCPRB
+      Category 1    0.900         1009.000
+      Category 2    0.024           27.000
+      Category 3    0.033           37.000
+      Category 4    0.021           23.000
+      Category 5    0.022           25.000
+    ATALCEXP
+      Category 1    0.913         1024.000
+      Category 2    0.037           41.000
+      Category 3    0.018           20.000
+      Category 4    0.017           19.000
+      Category 5    0.015           17.000
+    ATALCWOR
+      Category 1    0.700          785.000
+      Category 2    0.201          225.000
+      Category 3    0.099          111.000
+    ATALCTRY
+      Category 1    0.753          844.000
+      Category 2    0.161          181.000
+      Category 3    0.086           96.000
+    ATTOB3M
+      Category 1    0.390          437.000
+      Category 2    0.070           78.000
+      Category 3    0.039           44.000
+      Category 4    0.057           64.000
+      Category 5    0.444          498.000
+    ATTOBURG
+      Category 1    0.475          532.000
+      Category 2    0.041           46.000
+      Category 3    0.022           25.000
+      Category 4    0.066           74.000
+      Category 5    0.396          444.000
+    ATTOBPRB
+      Category 1    0.806          904.000
+      Category 2    0.043           48.000
+      Category 3    0.037           41.000
+      Category 4    0.025           28.000
+      Category 5    0.089          100.000
+    ATTOBWOR
+      Category 1    0.492          551.000
+      Category 2    0.236          265.000
+      Category 3    0.272          305.000
+    ATTOBTRY
+      Category 1    0.448          502.000
+      Category 2    0.300          336.000
+      Category 3    0.252          283.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     THE CHI-SQUARE DIFFERENCE TEST COULD NOT BE COMPUTED BECAUSE THE H0 MODEL
+     IS NOT NESTED IN THE H1 MODEL. THE H1 MODEL HAS 106 PARAMETERS.
+     THE H0 MODEL HAS 107 PARAMETERS.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      107
+
+Chi-Square Test of Model Fit
+
+          Value                            936.522*
+          Degrees of Freedom                    85
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.095
+          90 Percent C.I.                    0.089  0.100
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.986
+          TLI                                0.978
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          62812.533
+          Degrees of Freedom                   136
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.071
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.24900538D+00
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    ATTHC3M            1.183      0.048     24.882      0.000
+    ATTHCURG           1.138      0.044     26.155      0.000
+    ATTHCPRB           0.889      0.036     24.873      0.000
+    ATTHCEXP           0.873      0.058     15.089      0.000
+    ATTHCWOR           0.667      0.054     12.341      0.000
+    ATTHCTRY           0.721      0.060     12.023      0.000
+    ATALC3M            0.001      0.051      0.018      0.985
+    ATALCURG          -0.056      0.054     -1.038      0.299
+    ATALCPRB           0.006      0.017      0.371      0.711
+    ATALCEXP           0.032      0.043      0.746      0.456
+    ATALCWOR           0.105      0.050      2.108      0.035
+    ATALCTRY          -0.090      0.055     -1.636      0.102
+    ATTOB3M            0.035      0.051      0.692      0.489
+    ATTOBURG           0.021      0.050      0.413      0.679
+    ATTOBPRB           0.138      0.059      2.334      0.020
+    ATTOBWOR           0.004      0.018      0.235      0.814
+    ATTOBTRY          -0.029      0.051     -0.572      0.567
+
+ F2       BY
+    ATTHC3M            0.003      0.010      0.290      0.772
+    ATTHCURG          -0.004      0.012     -0.338      0.736
+    ATTHCPRB           0.037      0.055      0.659      0.510
+    ATTHCEXP           0.113      0.060      1.880      0.060
+    ATTHCWOR          -0.340      0.049     -6.931      0.000
+    ATTHCTRY          -0.262      0.051     -5.091      0.000
+    ATALC3M            0.899      0.027     33.158      0.000
+    ATALCURG           0.870      0.031     28.147      0.000
+    ATALCPRB           0.708      0.039     18.147      0.000
+    ATALCEXP           0.730      0.043     16.958      0.000
+    ATALCWOR           0.262      0.045      5.883      0.000
+    ATALCTRY           0.333      0.045      7.455      0.000
+    ATTOB3M           -0.005      0.025     -0.217      0.828
+    ATTOBURG          -0.039      0.030     -1.292      0.196
+    ATTOBPRB           0.021      0.031      0.682      0.495
+    ATTOBWOR          -0.271      0.045     -6.060      0.000
+    ATTOBTRY          -0.173      0.049     -3.524      0.000
+
+ F3       BY
+    ATTHC3M           -0.503      0.069     -7.326      0.000
+    ATTHCURG          -0.411      0.067     -6.155      0.000
+    ATTHCPRB          -0.002      0.018     -0.086      0.931
+    ATTHCEXP          -0.046      0.065     -0.714      0.475
+    ATTHCWOR           0.043      0.065      0.654      0.513
+    ATTHCTRY           0.056      0.070      0.801      0.423
+    ATALC3M            0.023      0.041      0.553      0.580
+    ATALCURG           0.275      0.050      5.457      0.000
+    ATALCPRB           0.499      0.063      7.964      0.000
+    ATALCEXP           0.513      0.068      7.507      0.000
+    ATALCWOR           0.419      0.049      8.609      0.000
+    ATALCTRY           0.488      0.052      9.444      0.000
+    ATTOB3M            0.722      0.040     17.962      0.000
+    ATTOBURG           0.761      0.040     19.203      0.000
+    ATTOBPRB           0.719      0.046     15.784      0.000
+    ATTOBWOR           0.763      0.033     23.062      0.000
+    ATTOBTRY           0.828      0.037     22.126      0.000
+
+ F2       WITH
+    F1                 0.324      0.062      5.260      0.000
+
+ F3       WITH
+    F1                 0.554      0.049     11.218      0.000
+    F2                 0.086      0.056      1.532      0.125
+
+ ATALCTRY WITH
+    ATALCWOR           0.394      0.029     13.539      0.000
+    ATTHCTRY           0.405      0.035     11.429      0.000
+
+ ATTOBURG WITH
+    ATTOB3M            0.403      0.037     10.809      0.000
+
+ Thresholds
+    ATTHC3M$1          0.577      0.040     14.507      0.000
+    ATTHC3M$2          0.811      0.042     19.183      0.000
+    ATTHC3M$3          1.003      0.045     22.217      0.000
+    ATTHC3M$4          1.303      0.052     25.243      0.000
+    ATTHCURG$1         0.792      0.042     18.850      0.000
+    ATTHCURG$2         0.953      0.044     21.499      0.000
+    ATTHCURG$3         1.100      0.047     23.434      0.000
+    ATTHCURG$4         1.346      0.053     25.499      0.000
+    ATTHCPRB$1         1.564      0.060     26.115      0.000
+    ATTHCPRB$2         1.719      0.066     25.887      0.000
+    ATTHCPRB$3         1.903      0.076     24.976      0.000
+    ATTHCPRB$4         2.143      0.094     22.919      0.000
+    ATTHCEXP$1         1.628      0.062     26.084      0.000
+    ATTHCEXP$2         1.851      0.073     25.299      0.000
+    ATTHCEXP$3         2.008      0.083     24.177      0.000
+    ATTHCEXP$4         2.301      0.109     21.170      0.000
+    ATTHCWOR$1         0.833      0.043     19.569      0.000
+    ATTHCWOR$2         1.672      0.064     26.011      0.000
+    ATTHCTRY$1         0.898      0.043     20.654      0.000
+    ATTHCTRY$2         1.620      0.062     26.093      0.000
+    ATALC3M$1         -0.298      0.038     -7.844      0.000
+    ATALC3M$2          0.152      0.038      4.031      0.000
+    ATALC3M$3          0.653      0.040     16.128      0.000
+    ATALC3M$4          1.391      0.054     25.722      0.000
+    ATALCURG$1         0.430      0.039     11.104      0.000
+    ATALCURG$2         0.698      0.041     17.045      0.000
+    ATALCURG$3         0.949      0.044     21.447      0.000
+    ATALCURG$4         1.440      0.056     25.904      0.000
+    ATALCPRB$1         1.282      0.051     25.105      0.000
+    ATALCPRB$2         1.434      0.055     25.884      0.000
+    ATALCPRB$3         1.719      0.066     25.887      0.000
+    ATALCPRB$4         2.008      0.083     24.177      0.000
+    ATALCEXP$1         1.362      0.053     25.587      0.000
+    ATALCEXP$2         1.645      0.063     26.060      0.000
+    ATALCEXP$3         1.851      0.073     25.299      0.000
+    ATALCEXP$4         2.166      0.095     22.683      0.000
+    ATALCWOR$1         0.525      0.039     13.339      0.000
+    ATALCWOR$2         1.287      0.051     25.140      0.000
+    ATALCTRY$1         0.684      0.041     16.759      0.000
+    ATALCTRY$2         1.368      0.053     25.615      0.000
+    ATTOB3M$1         -0.280      0.038     -7.368      0.000
+    ATTOB3M$2         -0.102      0.038     -2.718      0.007
+    ATTOB3M$3         -0.003      0.037     -0.090      0.929
+    ATTOB3M$4          0.140      0.038      3.732      0.000
+    ATTOBURG$1        -0.064      0.037     -1.702      0.089
+    ATTOBURG$2         0.039      0.037      1.045      0.296
+    ATTOBURG$3         0.095      0.037      2.538      0.011
+    ATTOBURG$4         0.264      0.038      6.951      0.000
+    ATTOBPRB$1         0.865      0.043     20.115      0.000
+    ATTOBPRB$2         1.033      0.046     22.617      0.000
+    ATTOBPRB$3         1.205      0.049     24.490      0.000
+    ATTOBPRB$4         1.346      0.053     25.499      0.000
+    ATTOBWOR$1        -0.021      0.037     -0.567      0.570
+    ATTOBWOR$2         0.607      0.040     15.146      0.000
+    ATTOBTRY$1        -0.131      0.038     -3.494      0.000
+    ATTOBTRY$2         0.667      0.041     16.415      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+    F3                 1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    ATTHC3M            1.183      0.048     24.882      0.000
+    ATTHCURG           1.138      0.044     26.155      0.000
+    ATTHCPRB           0.889      0.036     24.873      0.000
+    ATTHCEXP           0.873      0.058     15.089      0.000
+    ATTHCWOR           0.667      0.054     12.341      0.000
+    ATTHCTRY           0.721      0.060     12.023      0.000
+    ATALC3M            0.001      0.051      0.018      0.985
+    ATALCURG          -0.056      0.054     -1.038      0.299
+    ATALCPRB           0.006      0.017      0.371      0.711
+    ATALCEXP           0.032      0.043      0.746      0.456
+    ATALCWOR           0.105      0.050      2.108      0.035
+    ATALCTRY          -0.090      0.055     -1.636      0.102
+    ATTOB3M            0.035      0.051      0.692      0.489
+    ATTOBURG           0.021      0.050      0.413      0.679
+    ATTOBPRB           0.138      0.059      2.334      0.020
+    ATTOBWOR           0.004      0.018      0.235      0.814
+    ATTOBTRY          -0.029      0.051     -0.572      0.567
+
+ F2       BY
+    ATTHC3M            0.003      0.010      0.290      0.772
+    ATTHCURG          -0.004      0.012     -0.338      0.736
+    ATTHCPRB           0.037      0.055      0.659      0.510
+    ATTHCEXP           0.113      0.060      1.880      0.060
+    ATTHCWOR          -0.340      0.049     -6.931      0.000
+    ATTHCTRY          -0.262      0.051     -5.091      0.000
+    ATALC3M            0.899      0.027     33.158      0.000
+    ATALCURG           0.870      0.031     28.147      0.000
+    ATALCPRB           0.708      0.039     18.147      0.000
+    ATALCEXP           0.730      0.043     16.958      0.000
+    ATALCWOR           0.262      0.045      5.883      0.000
+    ATALCTRY           0.333      0.045      7.455      0.000
+    ATTOB3M           -0.005      0.025     -0.217      0.828
+    ATTOBURG          -0.039      0.030     -1.292      0.196
+    ATTOBPRB           0.021      0.031      0.682      0.495
+    ATTOBWOR          -0.271      0.045     -6.060      0.000
+    ATTOBTRY          -0.173      0.049     -3.524      0.000
+
+ F3       BY
+    ATTHC3M           -0.503      0.069     -7.326      0.000
+    ATTHCURG          -0.411      0.067     -6.155      0.000
+    ATTHCPRB          -0.002      0.018     -0.086      0.931
+    ATTHCEXP          -0.046      0.065     -0.714      0.475
+    ATTHCWOR           0.043      0.065      0.654      0.513
+    ATTHCTRY           0.056      0.070      0.801      0.423
+    ATALC3M            0.023      0.041      0.553      0.580
+    ATALCURG           0.275      0.050      5.457      0.000
+    ATALCPRB           0.499      0.063      7.964      0.000
+    ATALCEXP           0.513      0.068      7.507      0.000
+    ATALCWOR           0.419      0.049      8.609      0.000
+    ATALCTRY           0.488      0.052      9.444      0.000
+    ATTOB3M            0.722      0.040     17.962      0.000
+    ATTOBURG           0.761      0.040     19.203      0.000
+    ATTOBPRB           0.719      0.046     15.784      0.000
+    ATTOBWOR           0.763      0.033     23.062      0.000
+    ATTOBTRY           0.828      0.037     22.126      0.000
+
+ F2       WITH
+    F1                 0.324      0.062      5.260      0.000
+
+ F3       WITH
+    F1                 0.554      0.049     11.218      0.000
+    F2                 0.086      0.056      1.532      0.125
+
+ ATALCTRY WITH
+    ATALCWOR           0.587      0.034     17.288      0.000
+    ATTHCTRY           0.701      0.061     11.581      0.000
+
+ ATTOBURG WITH
+    ATTOB3M            0.942      0.010     98.578      0.000
+
+ Thresholds
+    ATTHC3M$1          0.577      0.040     14.507      0.000
+    ATTHC3M$2          0.811      0.042     19.183      0.000
+    ATTHC3M$3          1.003      0.045     22.217      0.000
+    ATTHC3M$4          1.303      0.052     25.243      0.000
+    ATTHCURG$1         0.792      0.042     18.850      0.000
+    ATTHCURG$2         0.953      0.044     21.499      0.000
+    ATTHCURG$3         1.100      0.047     23.434      0.000
+    ATTHCURG$4         1.346      0.053     25.499      0.000
+    ATTHCPRB$1         1.564      0.060     26.115      0.000
+    ATTHCPRB$2         1.719      0.066     25.887      0.000
+    ATTHCPRB$3         1.903      0.076     24.976      0.000
+    ATTHCPRB$4         2.143      0.094     22.919      0.000
+    ATTHCEXP$1         1.628      0.062     26.084      0.000
+    ATTHCEXP$2         1.851      0.073     25.299      0.000
+    ATTHCEXP$3         2.008      0.083     24.177      0.000
+    ATTHCEXP$4         2.301      0.109     21.170      0.000
+    ATTHCWOR$1         0.833      0.043     19.569      0.000
+    ATTHCWOR$2         1.672      0.064     26.011      0.000
+    ATTHCTRY$1         0.898      0.043     20.654      0.000
+    ATTHCTRY$2         1.620      0.062     26.093      0.000
+    ATALC3M$1         -0.298      0.038     -7.844      0.000
+    ATALC3M$2          0.152      0.038      4.031      0.000
+    ATALC3M$3          0.653      0.040     16.128      0.000
+    ATALC3M$4          1.391      0.054     25.722      0.000
+    ATALCURG$1         0.430      0.039     11.104      0.000
+    ATALCURG$2         0.698      0.041     17.045      0.000
+    ATALCURG$3         0.949      0.044     21.447      0.000
+    ATALCURG$4         1.440      0.056     25.904      0.000
+    ATALCPRB$1         1.282      0.051     25.105      0.000
+    ATALCPRB$2         1.434      0.055     25.884      0.000
+    ATALCPRB$3         1.719      0.066     25.887      0.000
+    ATALCPRB$4         2.008      0.083     24.177      0.000
+    ATALCEXP$1         1.362      0.053     25.587      0.000
+    ATALCEXP$2         1.645      0.063     26.060      0.000
+    ATALCEXP$3         1.851      0.073     25.299      0.000
+    ATALCEXP$4         2.166      0.095     22.683      0.000
+    ATALCWOR$1         0.525      0.039     13.339      0.000
+    ATALCWOR$2         1.287      0.051     25.140      0.000
+    ATALCTRY$1         0.684      0.041     16.759      0.000
+    ATALCTRY$2         1.368      0.053     25.615      0.000
+    ATTOB3M$1         -0.280      0.038     -7.368      0.000
+    ATTOB3M$2         -0.102      0.038     -2.718      0.007
+    ATTOB3M$3         -0.003      0.037     -0.090      0.929
+    ATTOB3M$4          0.140      0.038      3.732      0.000
+    ATTOBURG$1        -0.064      0.037     -1.702      0.089
+    ATTOBURG$2         0.039      0.037      1.045      0.296
+    ATTOBURG$3         0.095      0.037      2.538      0.011
+    ATTOBURG$4         0.264      0.038      6.951      0.000
+    ATTOBPRB$1         0.865      0.043     20.115      0.000
+    ATTOBPRB$2         1.033      0.046     22.617      0.000
+    ATTOBPRB$3         1.205      0.049     24.490      0.000
+    ATTOBPRB$4         1.346      0.053     25.499      0.000
+    ATTOBWOR$1        -0.021      0.037     -0.567      0.570
+    ATTOBWOR$2         0.607      0.040     15.146      0.000
+    ATTOBTRY$1        -0.131      0.038     -3.494      0.000
+    ATTOBTRY$2         0.667      0.041     16.415      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+    F3                 1.000      0.000    999.000    999.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    ATTHC3M            1.183      0.048     24.882      0.000
+    ATTHCURG           1.138      0.044     26.155      0.000
+    ATTHCPRB           0.889      0.036     24.873      0.000
+    ATTHCEXP           0.873      0.058     15.089      0.000
+    ATTHCWOR           0.667      0.054     12.341      0.000
+    ATTHCTRY           0.721      0.060     12.023      0.000
+    ATALC3M            0.001      0.051      0.018      0.985
+    ATALCURG          -0.056      0.054     -1.038      0.299
+    ATALCPRB           0.006      0.017      0.371      0.711
+    ATALCEXP           0.032      0.043      0.746      0.456
+    ATALCWOR           0.105      0.050      2.108      0.035
+    ATALCTRY          -0.090      0.055     -1.636      0.102
+    ATTOB3M            0.035      0.051      0.692      0.489
+    ATTOBURG           0.021      0.050      0.413      0.679
+    ATTOBPRB           0.138      0.059      2.334      0.020
+    ATTOBWOR           0.004      0.018      0.235      0.814
+    ATTOBTRY          -0.029      0.051     -0.572      0.567
+
+ F2       BY
+    ATTHC3M            0.003      0.010      0.290      0.772
+    ATTHCURG          -0.004      0.012     -0.338      0.736
+    ATTHCPRB           0.037      0.055      0.659      0.510
+    ATTHCEXP           0.113      0.060      1.880      0.060
+    ATTHCWOR          -0.340      0.049     -6.931      0.000
+    ATTHCTRY          -0.262      0.051     -5.091      0.000
+    ATALC3M            0.899      0.027     33.158      0.000
+    ATALCURG           0.870      0.031     28.147      0.000
+    ATALCPRB           0.708      0.039     18.147      0.000
+    ATALCEXP           0.730      0.043     16.958      0.000
+    ATALCWOR           0.262      0.045      5.883      0.000
+    ATALCTRY           0.333      0.045      7.455      0.000
+    ATTOB3M           -0.005      0.025     -0.217      0.828
+    ATTOBURG          -0.039      0.030     -1.292      0.196
+    ATTOBPRB           0.021      0.031      0.682      0.495
+    ATTOBWOR          -0.271      0.045     -6.060      0.000
+    ATTOBTRY          -0.173      0.049     -3.524      0.000
+
+ F3       BY
+    ATTHC3M           -0.503      0.069     -7.326      0.000
+    ATTHCURG          -0.411      0.067     -6.155      0.000
+    ATTHCPRB          -0.002      0.018     -0.086      0.931
+    ATTHCEXP          -0.046      0.065     -0.714      0.475
+    ATTHCWOR           0.043      0.065      0.654      0.513
+    ATTHCTRY           0.056      0.070      0.801      0.423
+    ATALC3M            0.023      0.041      0.553      0.580
+    ATALCURG           0.275      0.050      5.457      0.000
+    ATALCPRB           0.499      0.063      7.964      0.000
+    ATALCEXP           0.513      0.068      7.507      0.000
+    ATALCWOR           0.419      0.049      8.609      0.000
+    ATALCTRY           0.488      0.052      9.444      0.000
+    ATTOB3M            0.722      0.040     17.962      0.000
+    ATTOBURG           0.761      0.040     19.203      0.000
+    ATTOBPRB           0.719      0.046     15.784      0.000
+    ATTOBWOR           0.763      0.033     23.062      0.000
+    ATTOBTRY           0.828      0.037     22.126      0.000
+
+ F2       WITH
+    F1                 0.324      0.062      5.260      0.000
+
+ F3       WITH
+    F1                 0.554      0.049     11.218      0.000
+    F2                 0.086      0.056      1.532      0.125
+
+ ATALCTRY WITH
+    ATALCWOR           0.587      0.034     17.288      0.000
+    ATTHCTRY           0.701      0.061     11.581      0.000
+
+ ATTOBURG WITH
+    ATTOB3M            0.942      0.010     98.578      0.000
+
+ Thresholds
+    ATTHC3M$1          0.577      0.040     14.507      0.000
+    ATTHC3M$2          0.811      0.042     19.183      0.000
+    ATTHC3M$3          1.003      0.045     22.217      0.000
+    ATTHC3M$4          1.303      0.052     25.243      0.000
+    ATTHCURG$1         0.792      0.042     18.850      0.000
+    ATTHCURG$2         0.953      0.044     21.499      0.000
+    ATTHCURG$3         1.100      0.047     23.434      0.000
+    ATTHCURG$4         1.346      0.053     25.499      0.000
+    ATTHCPRB$1         1.564      0.060     26.115      0.000
+    ATTHCPRB$2         1.719      0.066     25.887      0.000
+    ATTHCPRB$3         1.903      0.076     24.976      0.000
+    ATTHCPRB$4         2.143      0.094     22.919      0.000
+    ATTHCEXP$1         1.628      0.062     26.084      0.000
+    ATTHCEXP$2         1.851      0.073     25.299      0.000
+    ATTHCEXP$3         2.008      0.083     24.177      0.000
+    ATTHCEXP$4         2.301      0.109     21.170      0.000
+    ATTHCWOR$1         0.833      0.043     19.569      0.000
+    ATTHCWOR$2         1.672      0.064     26.011      0.000
+    ATTHCTRY$1         0.898      0.043     20.654      0.000
+    ATTHCTRY$2         1.620      0.062     26.093      0.000
+    ATALC3M$1         -0.298      0.038     -7.844      0.000
+    ATALC3M$2          0.152      0.038      4.031      0.000
+    ATALC3M$3          0.653      0.040     16.128      0.000
+    ATALC3M$4          1.391      0.054     25.722      0.000
+    ATALCURG$1         0.430      0.039     11.104      0.000
+    ATALCURG$2         0.698      0.041     17.045      0.000
+    ATALCURG$3         0.949      0.044     21.447      0.000
+    ATALCURG$4         1.440      0.056     25.904      0.000
+    ATALCPRB$1         1.282      0.051     25.105      0.000
+    ATALCPRB$2         1.434      0.055     25.884      0.000
+    ATALCPRB$3         1.719      0.066     25.887      0.000
+    ATALCPRB$4         2.008      0.083     24.177      0.000
+    ATALCEXP$1         1.362      0.053     25.587      0.000
+    ATALCEXP$2         1.645      0.063     26.060      0.000
+    ATALCEXP$3         1.851      0.073     25.299      0.000
+    ATALCEXP$4         2.166      0.095     22.683      0.000
+    ATALCWOR$1         0.525      0.039     13.339      0.000
+    ATALCWOR$2         1.287      0.051     25.140      0.000
+    ATALCTRY$1         0.684      0.041     16.759      0.000
+    ATALCTRY$2         1.368      0.053     25.615      0.000
+    ATTOB3M$1         -0.280      0.038     -7.368      0.000
+    ATTOB3M$2         -0.102      0.038     -2.718      0.007
+    ATTOB3M$3         -0.003      0.037     -0.090      0.929
+    ATTOB3M$4          0.140      0.038      3.732      0.000
+    ATTOBURG$1        -0.064      0.037     -1.702      0.089
+    ATTOBURG$2         0.039      0.037      1.045      0.296
+    ATTOBURG$3         0.095      0.037      2.538      0.011
+    ATTOBURG$4         0.264      0.038      6.951      0.000
+    ATTOBPRB$1         0.865      0.043     20.115      0.000
+    ATTOBPRB$2         1.033      0.046     22.617      0.000
+    ATTOBPRB$3         1.205      0.049     24.490      0.000
+    ATTOBPRB$4         1.346      0.053     25.499      0.000
+    ATTOBWOR$1        -0.021      0.037     -0.567      0.570
+    ATTOBWOR$2         0.607      0.040     15.146      0.000
+    ATTOBTRY$1        -0.131      0.038     -3.494      0.000
+    ATTOBTRY$2         0.667      0.041     16.415      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+    F3                 1.000      0.000    999.000    999.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    ATTHC3M            1.183      0.048     24.882      0.000
+    ATTHCURG           1.138      0.044     26.155      0.000
+    ATTHCPRB           0.889      0.036     24.873      0.000
+    ATTHCEXP           0.873      0.058     15.089      0.000
+    ATTHCWOR           0.667      0.054     12.341      0.000
+    ATTHCTRY           0.721      0.060     12.023      0.000
+    ATALC3M            0.001      0.051      0.018      0.985
+    ATALCURG          -0.056      0.054     -1.038      0.299
+    ATALCPRB           0.006      0.017      0.371      0.711
+    ATALCEXP           0.032      0.043      0.746      0.456
+    ATALCWOR           0.105      0.050      2.108      0.035
+    ATALCTRY          -0.090      0.055     -1.636      0.102
+    ATTOB3M            0.035      0.051      0.692      0.489
+    ATTOBURG           0.021      0.050      0.413      0.679
+    ATTOBPRB           0.138      0.059      2.334      0.020
+    ATTOBWOR           0.004      0.018      0.235      0.814
+    ATTOBTRY          -0.029      0.051     -0.572      0.567
+
+ F2       BY
+    ATTHC3M            0.003      0.010      0.290      0.772
+    ATTHCURG          -0.004      0.012     -0.338      0.736
+    ATTHCPRB           0.037      0.055      0.659      0.510
+    ATTHCEXP           0.113      0.060      1.880      0.060
+    ATTHCWOR          -0.340      0.049     -6.931      0.000
+    ATTHCTRY          -0.262      0.051     -5.091      0.000
+    ATALC3M            0.899      0.027     33.158      0.000
+    ATALCURG           0.870      0.031     28.147      0.000
+    ATALCPRB           0.708      0.039     18.147      0.000
+    ATALCEXP           0.730      0.043     16.958      0.000
+    ATALCWOR           0.262      0.045      5.883      0.000
+    ATALCTRY           0.333      0.045      7.455      0.000
+    ATTOB3M           -0.005      0.025     -0.217      0.828
+    ATTOBURG          -0.039      0.030     -1.292      0.196
+    ATTOBPRB           0.021      0.031      0.682      0.495
+    ATTOBWOR          -0.271      0.045     -6.060      0.000
+    ATTOBTRY          -0.173      0.049     -3.524      0.000
+
+ F3       BY
+    ATTHC3M           -0.503      0.069     -7.326      0.000
+    ATTHCURG          -0.411      0.067     -6.155      0.000
+    ATTHCPRB          -0.002      0.018     -0.086      0.931
+    ATTHCEXP          -0.046      0.065     -0.714      0.475
+    ATTHCWOR           0.043      0.065      0.654      0.513
+    ATTHCTRY           0.056      0.070      0.801      0.423
+    ATALC3M            0.023      0.041      0.553      0.580
+    ATALCURG           0.275      0.050      5.457      0.000
+    ATALCPRB           0.499      0.063      7.964      0.000
+    ATALCEXP           0.513      0.068      7.507      0.000
+    ATALCWOR           0.419      0.049      8.609      0.000
+    ATALCTRY           0.488      0.052      9.444      0.000
+    ATTOB3M            0.722      0.040     17.962      0.000
+    ATTOBURG           0.761      0.040     19.203      0.000
+    ATTOBPRB           0.719      0.046     15.784      0.000
+    ATTOBWOR           0.763      0.033     23.062      0.000
+    ATTOBTRY           0.828      0.037     22.126      0.000
+
+ F2       WITH
+    F1                 0.324      0.062      5.260      0.000
+
+ F3       WITH
+    F1                 0.554      0.049     11.218      0.000
+    F2                 0.086      0.056      1.532      0.125
+
+ ATALCTRY WITH
+    ATALCWOR           0.394      0.029     13.539      0.000
+    ATTHCTRY           0.405      0.035     11.429      0.000
+
+ ATTOBURG WITH
+    ATTOB3M            0.403      0.037     10.809      0.000
+
+ Thresholds
+    ATTHC3M$1          0.577      0.040     14.507      0.000
+    ATTHC3M$2          0.811      0.042     19.183      0.000
+    ATTHC3M$3          1.003      0.045     22.217      0.000
+    ATTHC3M$4          1.303      0.052     25.243      0.000
+    ATTHCURG$1         0.792      0.042     18.850      0.000
+    ATTHCURG$2         0.953      0.044     21.499      0.000
+    ATTHCURG$3         1.100      0.047     23.434      0.000
+    ATTHCURG$4         1.346      0.053     25.499      0.000
+    ATTHCPRB$1         1.564      0.060     26.115      0.000
+    ATTHCPRB$2         1.719      0.066     25.887      0.000
+    ATTHCPRB$3         1.903      0.076     24.976      0.000
+    ATTHCPRB$4         2.143      0.094     22.919      0.000
+    ATTHCEXP$1         1.628      0.062     26.084      0.000
+    ATTHCEXP$2         1.851      0.073     25.299      0.000
+    ATTHCEXP$3         2.008      0.083     24.177      0.000
+    ATTHCEXP$4         2.301      0.109     21.170      0.000
+    ATTHCWOR$1         0.833      0.043     19.569      0.000
+    ATTHCWOR$2         1.672      0.064     26.011      0.000
+    ATTHCTRY$1         0.898      0.043     20.654      0.000
+    ATTHCTRY$2         1.620      0.062     26.093      0.000
+    ATALC3M$1         -0.298      0.038     -7.844      0.000
+    ATALC3M$2          0.152      0.038      4.031      0.000
+    ATALC3M$3          0.653      0.040     16.128      0.000
+    ATALC3M$4          1.391      0.054     25.722      0.000
+    ATALCURG$1         0.430      0.039     11.104      0.000
+    ATALCURG$2         0.698      0.041     17.045      0.000
+    ATALCURG$3         0.949      0.044     21.447      0.000
+    ATALCURG$4         1.440      0.056     25.904      0.000
+    ATALCPRB$1         1.282      0.051     25.105      0.000
+    ATALCPRB$2         1.434      0.055     25.884      0.000
+    ATALCPRB$3         1.719      0.066     25.887      0.000
+    ATALCPRB$4         2.008      0.083     24.177      0.000
+    ATALCEXP$1         1.362      0.053     25.587      0.000
+    ATALCEXP$2         1.645      0.063     26.060      0.000
+    ATALCEXP$3         1.851      0.073     25.299      0.000
+    ATALCEXP$4         2.166      0.095     22.683      0.000
+    ATALCWOR$1         0.525      0.039     13.339      0.000
+    ATALCWOR$2         1.287      0.051     25.140      0.000
+    ATALCTRY$1         0.684      0.041     16.759      0.000
+    ATALCTRY$2         1.368      0.053     25.615      0.000
+    ATTOB3M$1         -0.280      0.038     -7.368      0.000
+    ATTOB3M$2         -0.102      0.038     -2.718      0.007
+    ATTOB3M$3         -0.003      0.037     -0.090      0.929
+    ATTOB3M$4          0.140      0.038      3.732      0.000
+    ATTOBURG$1        -0.064      0.037     -1.702      0.089
+    ATTOBURG$2         0.039      0.037      1.045      0.296
+    ATTOBURG$3         0.095      0.037      2.538      0.011
+    ATTOBURG$4         0.264      0.038      6.951      0.000
+    ATTOBPRB$1         0.865      0.043     20.115      0.000
+    ATTOBPRB$2         1.033      0.046     22.617      0.000
+    ATTOBPRB$3         1.205      0.049     24.490      0.000
+    ATTOBPRB$4         1.346      0.053     25.499      0.000
+    ATTOBWOR$1        -0.021      0.037     -0.567      0.570
+    ATTOBWOR$2         0.607      0.040     15.146      0.000
+    ATTOBTRY$1        -0.131      0.038     -3.494      0.000
+    ATTOBTRY$2         0.667      0.041     16.415      0.000
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.000      0.000    999.000    999.000
+    F3                 1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    ATTHC3M            0.995      0.030     32.853      0.000      0.005
+    ATTHCURG           0.943      0.028     33.719      0.000      0.057
+    ATTHCPRB           0.812      0.043     18.691      0.000      0.188
+    ATTHCEXP           0.795      0.046     17.353      0.000      0.205
+    ATTHCWOR           0.445      0.041     10.864      0.000      0.555
+    ATTHCTRY           0.511      0.041     12.386      0.000      0.489
+    ATALC3M            0.812      0.035     23.157      0.000      0.188
+    ATALCURG           0.829      0.031     26.937      0.000      0.171
+    ATALCPRB           0.817      0.037     22.030      0.000      0.183
+    ATALCEXP           0.895      0.038     23.374      0.000      0.105
+    ATALCWOR           0.341      0.034     10.176      0.000      0.659
+    ATALCTRY           0.317      0.034      9.312      0.000      0.683
+    ATTOB3M            0.550      0.041     13.469      0.000      0.450
+    ATTOBURG           0.593      0.042     14.236      0.000      0.407
+    ATTOBPRB           0.651      0.038     16.901      0.000      0.349
+    ATTOBWOR           0.622      0.034     18.117      0.000      0.378
+    ATTOBTRY           0.668      0.036     18.590      0.000      0.332
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.298E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+ON/BY Statements
+
+ATTHC3M  ON F3       /
+F3       BY ATTHC3M              999.000     0.000      0.000        0.000
+ATTHCURG ON F3       /
+F3       BY ATTHCURG             999.000     0.000      0.000        0.000
+
+ON Statements
+
+F3       ON ATTHC3M              999.000     0.000      0.000        0.000
+F3       ON ATTHCURG             999.000     0.000      0.000        0.000
+ATTHC3M  ON ATTHCURG              89.651     0.478      0.478        0.478
+ATTHC3M  ON ATTHCWOR              22.707    -0.210     -0.210       -0.210
+ATTHC3M  ON ATTHCTRY              30.568    -0.228     -0.228       -0.228
+ATTHC3M  ON ATALCWOR              15.252    -0.168     -0.168       -0.168
+ATTHC3M  ON ATALCTRY              20.148    -0.187     -0.187       -0.187
+ATTHC3M  ON ATTOB3M               36.669     0.278      0.278        0.278
+ATTHC3M  ON ATTOBURG              23.741     0.228      0.228        0.228
+ATTHCURG ON ATTHC3M               89.722     0.478      0.478        0.478
+ATTHCURG ON ATTHCTRY              19.485    -0.182     -0.182       -0.182
+ATTHCURG ON ATALCWOR              12.090    -0.151     -0.151       -0.151
+ATTHCURG ON ATALCTRY              15.483    -0.165     -0.165       -0.165
+ATTHCURG ON ATTOB3M               29.157     0.250      0.250        0.250
+ATTHCURG ON ATTOBURG              33.496     0.270      0.270        0.270
+ATTHCPRB ON ATTOBPRB              20.080     0.212      0.212        0.212
+ATTHCWOR ON ATTHC3M               22.493    -0.209     -0.209       -0.209
+ATTHCWOR ON ATTHCTRY             122.422     0.347      0.347        0.347
+ATTHCWOR ON ATALCWOR             166.985     0.427      0.427        0.427
+ATTHCWOR ON ATALCTRY             183.424     0.481      0.481        0.481
+ATTHCWOR ON ATTOB3M              102.853    -0.434     -0.434       -0.434
+ATTHCWOR ON ATTOBURG              85.846    -0.404     -0.404       -0.404
+ATTHCWOR ON ATTOBWOR              14.589     0.158      0.158        0.158
+ATTHCWOR ON ATTOBTRY              21.573    -0.194     -0.194       -0.194
+ATTHCTRY ON ATTHC3M               29.959    -0.243     -0.243       -0.243
+ATTHCTRY ON ATTHCURG              18.452    -0.190     -0.190       -0.190
+ATTHCTRY ON ATTHCWOR              99.944     0.331      0.331        0.331
+ATTHCTRY ON ATTOB3M               37.195    -0.268     -0.268       -0.268
+ATTHCTRY ON ATTOBURG              29.680    -0.243     -0.243       -0.243
+ATALC3M  ON ATALCURG              37.847     0.244      0.244        0.244
+ATALC3M  ON ATALCWOR              24.703    -0.155     -0.155       -0.155
+ATALC3M  ON ATALCTRY              49.040    -0.216     -0.216       -0.216
+ATALC3M  ON ATTOB3M               12.872     0.139      0.139        0.139
+ATALC3M  ON ATTOBURG              10.221     0.126      0.126        0.126
+ATALC3M  ON ATTOBWOR              10.721     0.135      0.135        0.135
+ATALCURG ON ATALC3M               37.853     0.245      0.245        0.245
+ATALCURG ON ATALCPRB              16.026    -0.151     -0.151       -0.151
+ATALCURG ON ATALCEXP              13.834    -0.146     -0.146       -0.146
+ATALCURG ON ATTOBURG              12.943     0.146      0.146        0.146
+ATALCPRB ON ATTHCTRY              13.904     0.172      0.172        0.172
+ATALCPRB ON ATALCURG              16.022    -0.151     -0.151       -0.151
+ATALCPRB ON ATALCWOR              29.682     0.184      0.184        0.184
+ATALCPRB ON ATALCTRY              35.653     0.206      0.206        0.206
+ATALCPRB ON ATTOB3M               16.917    -0.206     -0.206       -0.206
+ATALCPRB ON ATTOBURG              19.091    -0.218     -0.218       -0.218
+ATALCPRB ON ATTOBPRB              10.355     0.140      0.140        0.140
+ATALCEXP ON ATTHCTRY              26.219     0.232      0.232        0.232
+ATALCEXP ON ATALCURG              13.829    -0.146     -0.146       -0.146
+ATALCEXP ON ATALCWOR              42.625     0.218      0.218        0.218
+ATALCEXP ON ATALCTRY              67.317     0.274      0.274        0.274
+ATALCEXP ON ATTOBWOR              11.659    -0.177     -0.177       -0.177
+ATALCWOR ON ATTHC3M               13.115    -0.162     -0.162       -0.162
+ATALCWOR ON ATTHCWOR             133.170     0.389      0.389        0.389
+ATALCWOR ON ATALCPRB              16.586     0.142      0.142        0.142
+ATALCWOR ON ATALCEXP              18.267     0.147      0.147        0.147
+ATALCWOR ON ATTOB3M               53.009    -0.273     -0.273       -0.273
+ATALCWOR ON ATTOBURG              48.306    -0.263     -0.263       -0.263
+ATALCWOR ON ATTOBPRB              20.521    -0.185     -0.185       -0.185
+ATALCWOR ON ATTOBWOR              15.401     0.137      0.137        0.137
+ATALCTRY ON ATTHCWOR              27.881     0.224      0.224        0.224
+ATALCTRY ON ATALC3M               42.928    -0.222     -0.222       -0.222
+ATALCTRY ON ATALCPRB              17.666     0.157      0.157        0.157
+ATALCTRY ON ATALCEXP              41.594     0.231      0.231        0.231
+ATALCTRY ON ATTOB3M               47.436    -0.277     -0.277       -0.277
+ATALCTRY ON ATTOBURG              41.883    -0.262     -0.262       -0.262
+ATALCTRY ON ATTOBTRY              17.586     0.153      0.153        0.153
+ATTOB3M  ON ATTHC3M               24.574     0.229      0.229        0.229
+ATTOB3M  ON ATTHCURG              13.902     0.174      0.174        0.174
+ATTOB3M  ON ATTHCWOR              61.789    -0.342     -0.342       -0.342
+ATTOB3M  ON ATTHCTRY              41.603    -0.262     -0.262       -0.262
+ATTOB3M  ON ATALCWOR              50.197    -0.260     -0.260       -0.260
+ATTOB3M  ON ATALCTRY              68.651    -0.302     -0.302       -0.302
+ATTOB3M  ON ATTOBPRB              30.030     0.197      0.197        0.197
+ATTOBURG ON ATTHCURG              18.844     0.205      0.205        0.205
+ATTOBURG ON ATTHCWOR              38.676    -0.277     -0.277       -0.277
+ATTOBURG ON ATTHCTRY              25.797    -0.209     -0.209       -0.209
+ATTOBURG ON ATALCPRB              11.099    -0.170     -0.170       -0.170
+ATTOBURG ON ATALCWOR              38.879    -0.230     -0.230       -0.230
+ATTOBURG ON ATALCTRY              48.797    -0.257     -0.257       -0.257
+ATTOBURG ON ATTOBPRB              20.808     0.154      0.154        0.154
+ATTOBPRB ON ATTHCPRB              20.106     0.212      0.212        0.212
+ATTOBPRB ON ATTHCTRY              14.379    -0.160     -0.160       -0.160
+ATTOBPRB ON ATALCPRB              10.367     0.140      0.140        0.140
+ATTOBPRB ON ATALCWOR              28.911    -0.210     -0.210       -0.210
+ATTOBPRB ON ATALCTRY              26.642    -0.195     -0.195       -0.195
+ATTOBPRB ON ATTOB3M               58.011     0.280      0.280        0.280
+ATTOBPRB ON ATTOBURG              46.944     0.239      0.239        0.239
+ATTOBPRB ON ATTOBTRY              18.125    -0.152     -0.152       -0.152
+ATTOBWOR ON ATTHCWOR              14.588     0.158      0.158        0.158
+ATTOBWOR ON ATTHCTRY              14.763    -0.153     -0.153       -0.153
+ATTOBWOR ON ATALC3M               10.745     0.135      0.135        0.135
+ATTOBWOR ON ATALCEXP              11.628    -0.177     -0.177       -0.177
+ATTOBWOR ON ATTOB3M               16.396     0.146      0.146        0.146
+ATTOBWOR ON ATTOBURG              11.388     0.121      0.121        0.121
+ATTOBTRY ON ATTHCWOR              21.596    -0.194     -0.194       -0.194
+ATTOBTRY ON ATTHCTRY              14.906     0.141      0.141        0.141
+ATTOBTRY ON ATALCTRY              15.670     0.130      0.130        0.130
+ATTOBTRY ON ATTOB3M               22.929     0.175      0.175        0.175
+ATTOBTRY ON ATTOBURG              22.003     0.168      0.168        0.168
+ATTOBTRY ON ATTOBPRB              18.139    -0.152     -0.152       -0.152
+
+WITH Statements
+
+ATTHC3M  WITH F3                 999.000     0.000      0.000        0.000
+ATTHCURG WITH F3                 999.000     0.000      0.000        0.000
+ATTHCURG WITH ATTHC3M             89.700     0.478      0.478       27.643
+ATTHCWOR WITH ATTHC3M             22.488    -0.209     -0.209       -3.862
+ATTHCTRY WITH ATTHC3M             29.947    -0.243     -0.243       -4.788
+ATTHCTRY WITH ATTHCURG            18.443    -0.190     -0.190       -1.142
+ATTHCTRY WITH ATTHCWOR            99.948     0.331      0.331        0.635
+ATALCURG WITH ATALC3M             37.856     0.245      0.245        1.362
+ATALCPRB WITH ATALCURG            16.023    -0.151     -0.151       -0.855
+ATALCEXP WITH ATALCURG            13.831    -0.146     -0.146       -1.084
+ATALCWOR WITH ATTHC3M             13.111    -0.162     -0.162       -2.752
+ATALCWOR WITH ATTHCWOR           133.165     0.389      0.389        0.644
+ATALCWOR WITH ATALCPRB            16.593     0.142      0.142        0.408
+ATALCWOR WITH ATALCEXP            18.275     0.147      0.147        0.558
+ATALCTRY WITH ATTHCWOR            27.874     0.224      0.224        0.363
+ATALCTRY WITH ATALC3M             42.911    -0.222     -0.222       -0.619
+ATALCTRY WITH ATALCPRB            17.671     0.157      0.157        0.444
+ATALCTRY WITH ATALCEXP            41.602     0.231      0.231        0.860
+ATTOB3M  WITH ATTHC3M             24.575     0.229      0.229        4.699
+ATTOB3M  WITH ATTHCURG            13.905     0.174      0.174        1.091
+ATTOB3M  WITH ATTHCWOR            61.770    -0.342     -0.342       -0.684
+ATTOB3M  WITH ATTHCTRY            22.759    -0.213     -0.213       -0.454
+ATTOB3M  WITH ATALCWOR            29.564    -0.207     -0.207       -0.380
+ATTOB3M  WITH ATALCTRY            26.999    -0.211     -0.211       -0.381
+ATTOBURG WITH ATTHCURG            18.825     0.205      0.205        1.350
+ATTOBURG WITH ATTHCWOR            38.685    -0.277     -0.277       -0.582
+ATTOBURG WITH ATTHCTRY            12.935    -0.163     -0.163       -0.366
+ATTOBURG WITH ATALCPRB            11.108    -0.170     -0.170       -0.625
+ATTOBURG WITH ATALCWOR            23.432    -0.186     -0.186       -0.358
+ATTOBURG WITH ATALCTRY            19.797    -0.183     -0.183       -0.346
+ATTOBPRB WITH ATTHCPRB            20.092     0.212      0.212        0.827
+ATTOBPRB WITH ATALCPRB            10.356     0.140      0.140        0.555
+ATTOBPRB WITH ATALCWOR            20.521    -0.185     -0.185       -0.387
+ATTOBPRB WITH ATTOB3M             30.048     0.197      0.197        0.496
+ATTOBPRB WITH ATTOBURG            20.804     0.154      0.154        0.409
+ATTOBWOR WITH ATTHCWOR            14.581     0.158      0.158        0.344
+ATTOBWOR WITH ATALC3M             10.726     0.135      0.135        0.506
+ATTOBWOR WITH ATALCEXP            11.658    -0.177     -0.177       -0.887
+ATTOBWOR WITH ATALCWOR            15.398     0.137      0.137        0.274
+ATTOBTRY WITH ATTHCWOR            21.583    -0.194     -0.194       -0.451
+ATTOBTRY WITH ATALCTRY            17.576     0.153      0.153        0.321
+ATTOBTRY WITH ATTOBPRB            18.128    -0.152     -0.152       -0.445
+
+
+SAVEDATA INFORMATION
+
+
+  Difference testing
+
+  Save file
+    deriv_etoh_tob_thc_03_d.dat
+  Save format      Free
+
+     Beginning Time:  03:35:49
+        Ending Time:  03:35:49
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen
